@@ -1,0 +1,47 @@
+﻿@page
+@model SprayingAgent.Web.Pages.SprayingDetailsModel
+@{
+    ViewData["Title"] = "Enter Spraying Details";
+}
+
+<h1 class="display-4">Enter Spraying Details</h1>
+
+<form method="post" id="sprayingAgentTool">
+    <div class="form-group">
+        <label asp-for="sprayingDetails.SprayingAgentLitres">Enter how many liters of spraying agent needed per hectare</label>
+        <input asp-for="sprayingDetails.SprayingAgentLitres" type="number" step="0.01" class="form-control">
+        <span asp-validation-for="sprayingDetails.SprayingAgentLitres" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="sprayingDetails.TotalHectaresToBeSprayed">Enter total hectares to be sprayed</label>
+        <input asp-for="sprayingDetails.TotalHectaresToBeSprayed" type="number" step="0.01" class="form-control">
+        <span asp-validation-for="sprayingDetails.TotalHectaresToBeSprayed" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="sprayingDetails.MinimumAprayingAgentLitres">Enter minimum spraying rate per hectare</label>
+        <input asp-for="sprayingDetails.MinimumAprayingAgentLitres" type="number" step="0.01" class="form-control">
+        <span asp-validation-for="sprayingDetails.MinimumAprayingAgentLitres" type="number" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Calculate</button>
+
+
+
+    <div>
+        <div class="form-group">
+            <label asp-for="results.TotalSprayingAgent">Total Spraying Agent</label>
+            <input asp-for="results.TotalSprayingAgent" type="number" step="0.01" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="results.TotalWater">Total Water</label>
+            <input asp-for="results.TotalWater" type="number" step="0.01" class="form-control" disabled>
+        </div>
+    </div> 
+</form>
+<button id="clearButton" class="btn btn-primary">Clear</button>
+
+
+
